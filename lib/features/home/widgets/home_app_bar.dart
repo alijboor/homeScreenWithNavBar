@@ -11,7 +11,7 @@ class HomeAppBar extends StatelessWidget {
       children: [
         const Expanded(
           child: TextFiledWidget(
-            hint: LocaleKeys.searchHint,
+            hint: LocaleKeys.searchProductHint,
             prefixIcon: Icon(
               Icons.search,
               color: Colors.deepPurpleAccent,

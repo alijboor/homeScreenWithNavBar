@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:home_screen/component/custom_Text.dart';
 import 'package:home_screen/component/gap.dart';
 import 'package:home_screen/component/local_keys.dart';
+import 'package:home_screen/component/main_screen.dart';
 import 'product_list_view.dart';
 import 'special_list_view.dart';
 
@@ -13,7 +14,7 @@ class HomeBody extends StatelessWidget {
     return Column(
       children: [
         const Gap.v(10),
-        _specialListView,
+        _specialListView(context),
         const Gap.v(10),
         _featureListView,
         _bestSellingListView,
@@ -21,7 +22,7 @@ class HomeBody extends StatelessWidget {
     );
   }
 
-  Widget _headContainer(String title) {
+  Widget _headContainer(String title, {VoidCallback? onPress}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -31,22 +32,31 @@ class HomeBody extends StatelessWidget {
           fontWeight: FontWeight.w500,
           size: 16,
         ),
-        const CustomText(
-          text: LocaleKeys.seeMore,
-          size: 16,
+        InkWell(
+          onTap: onPress,
+          child: const CustomText(
+            text: LocaleKeys.seeMore,
+            size: 16,
+          ),
         )
       ],
     );
   }
 
-  Widget get _specialListView {
+  Widget _specialListView(BuildContext context) {
     return Column(
       children: [
-        _headContainer(LocaleKeys.specialForYou),
+        _headContainer(LocaleKeys.specialForYou,
+            onPress: () => onCategorySeeMorePress(context)),
         const Gap.v(10),
-        const SizedBox(height: 100, child: SpecialListView())
+        const SizedBox(height: 100, child: CategoryListView())
       ],
     );
+  }
+
+  void onCategorySeeMorePress(BuildContext context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (_) => const MainScreen(selectedIndex: 1)));
   }
 
   Widget get _featureListView {

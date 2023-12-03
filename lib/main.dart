@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_screen/component/main_screen.dart';
 import 'package:home_screen/features/home/screens/homeScreen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ALi Jboor Test',
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 

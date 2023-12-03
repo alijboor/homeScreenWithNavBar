@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:home_screen/component/custom_Text.dart';
 import 'package:home_screen/component/gap.dart';
 import 'package:home_screen/data/product.dart';
+import 'package:home_screen/features/category_product/screens/product_detail_screen.dart';
 
 List<Product> products = [
   Product("Bluetooth Printer",
@@ -26,36 +27,39 @@ class ProductListView extends StatelessWidget {
     return ListView.separated(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemBuilder: (_, index) => _itemBuilder(products.elementAt(index)),
+        itemBuilder: (context, index) =>
+            _itemBuilder(context, products.elementAt(index)),
         separatorBuilder: (_, index) => const Gap.h(20),
         itemCount: products.length);
   }
 
-  Widget _itemBuilder(Product item) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+  Widget _itemBuilder(BuildContext context, Product item) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (_) => ProductDetailsScreen(item)));
+      },
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
-          decoration: BoxDecoration(
-            boxShadow: [
+            decoration: BoxDecoration(boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 3,
-                offset: Offset(0, 1), // changes position of shadow
-              ),
-            ]
-          ),
-            child: SizedBox(height: 90,child: Image.network(item.image, fit: BoxFit.fill))),
+                offset: const Offset(0, 1), // changes position of shadow
+              )
+            ]),
+            child: SizedBox(
+                height: 90,
+                child: Image.network(item.image, fit: BoxFit.fill))),
         CustomText(
-          text: item.name,
-          color: Colors.black,
-          overflow: TextOverflow.visible,
-        ),
+            text: item.name,
+            color: Colors.black,
+            overflow: TextOverflow.visible),
         CustomText(
             text: '${item.currency}${item.amount}',
-            color: Colors.deepPurpleAccent),
-      ],
+            color: Colors.deepPurpleAccent)
+      ]),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_screen/component/custom_Text.dart';
+import 'package:home_screen/component/enums/e_layout_type.dart';
 import 'package:home_screen/component/gap.dart';
 import 'package:home_screen/data/category.dart';
 
@@ -10,19 +11,35 @@ List<Category> categories = [
       "https://miro.medium.com/v2/resize:fit:900/1*VG6TaD86OZU8Ng21te8N9A.jpeg"),
 ];
 
-class SpecialListView extends StatelessWidget {
-  const SpecialListView({super.key});
+class CategoryListView extends StatelessWidget {
+  const CategoryListView({super.key, this.layout = ELayout.row});
+
+  final ELayout layout;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (_, index) => _itemBuilder(categories.elementAt(index)),
-        separatorBuilder: (_, index) => const Gap.h(20),
-        itemCount: categories.length);
+    Widget child = switch (layout) {
+      ELayout.row => _rowLayout,
+      ELayout.grid => _gridLayout
+    };
+
+    return child;
   }
+
+  Widget get _gridLayout => GridView.count(
+      crossAxisCount: 2,
+      shrinkWrap: true,
+      mainAxisSpacing: 16.0,
+      crossAxisSpacing: 16.0,
+      children: categories.map(_itemBuilder).toList());
+
+  Widget get _rowLayout => ListView.separated(
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (_, index) => _itemBuilder(categories.elementAt(index)),
+      separatorBuilder: (_, index) => const Gap.h(20),
+      itemCount: categories.length);
 
   Widget _itemBuilder(Category item) {
     return Container(
@@ -30,7 +47,8 @@ class SpecialListView extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: Colors.grey,
-          image: DecorationImage(image: NetworkImage(item.imageUrl),fit: BoxFit.cover)),
+          image: DecorationImage(
+              image: NetworkImage(item.imageUrl), fit: BoxFit.cover)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
