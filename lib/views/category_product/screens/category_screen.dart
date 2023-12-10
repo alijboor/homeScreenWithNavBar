@@ -4,7 +4,7 @@ import 'package:home_screen/component/enums/e_layout_type.dart';
 import 'package:home_screen/component/gap.dart';
 import 'package:home_screen/component/local_keys.dart';
 import 'package:home_screen/component/text_field_widget.dart';
-import 'package:home_screen/features/home/widgets/special_list_view.dart';
+import 'package:home_screen/views/home/widgets/special_list_view.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});

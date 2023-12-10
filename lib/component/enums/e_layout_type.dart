@@ -3,5 +3,8 @@ enum ELayout {
   grid,
 
   ///To build operations view inside scrollable row - horizontal scroll
-  row;
+  row,
+
+  ///To build operations view inside scrollable column - vertical scroll
+  column;
 }

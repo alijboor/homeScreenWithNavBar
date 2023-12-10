@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:home_screen/component/local_keys.dart';
-import 'package:home_screen/features/category_product/screens/category_screen.dart';
-import 'package:home_screen/features/home/screens/homeScreen.dart';
+import 'package:home_screen/views/category_product/screens/category_screen.dart';
+import 'package:home_screen/views/home/screens/homeScreen.dart';
+import 'package:home_screen/views/search/search_screen.dart';
+import 'package:home_screen/views/userProfile/user_profile_screen.dart';
+import 'package:home_screen/views/wishList/wish_list_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key, this.body, this.appBar, this.selectedIndex});
@@ -34,9 +37,9 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> pages = [
     const HomeScreen(),
     const CategoryScreen(),
-    Container(),
-    Container(),
-    Container()
+    SearchScreen(),
+    WishListScreen(),
+    UserProfileScreen()
   ];
 
   @override

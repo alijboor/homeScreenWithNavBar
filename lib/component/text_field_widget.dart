@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TextFiledWidget extends StatelessWidget {
   const TextFiledWidget(
       {super.key,
@@ -8,9 +7,11 @@ class TextFiledWidget extends StatelessWidget {
       this.prefixIcon,
       this.suffixIcon,
       this.validator,
+      this.onChanged,
       this.isSecure = false,
       this.label = '',
       this.hint = ''});
+
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextEditingController? controller;
@@ -18,6 +19,7 @@ class TextFiledWidget extends StatelessWidget {
   final String hint;
   final bool isSecure;
   final String? Function(String?)? validator;
+  final ValueChanged<String>? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class TextFiledWidget extends StatelessWidget {
         child: TextFormField(
           controller: controller,
           validator: validator,
+          onChanged: onChanged,
           obscureText: isSecure,
           decoration: InputDecoration(
               border: InputBorder.none,

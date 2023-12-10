@@ -3,11 +3,14 @@ import 'package:home_screen/component/custom_Text.dart';
 import 'package:home_screen/component/gap.dart';
 import 'package:home_screen/component/local_keys.dart';
 import 'package:home_screen/component/main_screen.dart';
+import '../../../controllers/products/products_controller.dart';
 import 'product_list_view.dart';
 import 'special_list_view.dart';
 
 class HomeBody extends StatelessWidget {
-  const HomeBody({super.key});
+  HomeBody({super.key}) : _controller = ProductsController();
+
+  final ProductsController _controller;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +68,11 @@ class HomeBody extends StatelessWidget {
       children: [
         _headContainer(LocaleKeys.featureProducts),
         const Gap.v(10),
-        const SizedBox(height: 150, child: ProductListView())
+        SizedBox(
+            height: 150,
+            child: ProductListView(
+              products: _controller.products,
+            ))
       ],
     );
   }
@@ -77,7 +84,11 @@ class HomeBody extends StatelessWidget {
         const Gap.v(10),
         _headContainer(LocaleKeys.featureProducts),
         const Gap.v(10),
-        const SizedBox(height: 150, child: ProductListView())
+        SizedBox(
+            height: 150,
+            child: ProductListView(
+              products: _controller.products,
+            ))
       ],
     );
   }

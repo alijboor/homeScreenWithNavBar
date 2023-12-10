@@ -3,7 +3,7 @@ import 'package:home_screen/component/custom_Text.dart';
 import 'package:home_screen/component/custom_button.dart';
 import 'package:home_screen/component/gap.dart';
 import 'package:home_screen/component/local_keys.dart';
-import 'package:home_screen/data/product.dart';
+import 'package:home_screen/models/product.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen(this.item, {super.key});

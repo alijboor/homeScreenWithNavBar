@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:home_screen/component/custom_Text.dart';
 import 'package:home_screen/component/enums/e_layout_type.dart';
 import 'package:home_screen/component/gap.dart';
-import 'package:home_screen/data/category.dart';
+import 'package:home_screen/models/category.dart';
 
 List<Category> categories = [
   Category("Computers",
@@ -20,7 +20,8 @@ class CategoryListView extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget child = switch (layout) {
       ELayout.row => _rowLayout,
-      ELayout.grid => _gridLayout
+      ELayout.grid => _gridLayout,
+      ELayout.column => const Gap.h(0.0)
     };
 
     return child;
