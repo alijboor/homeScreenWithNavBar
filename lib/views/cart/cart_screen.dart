@@ -7,6 +7,7 @@ import 'package:home_screen/component/local_keys.dart';
 import 'package:home_screen/controllers/products/products_controller.dart';
 import 'package:home_screen/models/cart_product.dart';
 import 'package:home_screen/models/product.dart';
+import 'package:home_screen/views/cart/check_out_screen.dart';
 
 class CartScreen extends StatefulWidget {
   CartScreen({super.key}) : _controller = ProductsController();
@@ -60,7 +61,12 @@ class _CartScreenState extends State<CartScreen> {
             Expanded(
               child: CustomButton(
                 text: LocaleKeys.checkOut,
-                onPress: () {},
+                onPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => CheckOutScreen(widget._controller)));
+                },
               ),
             )
           ],

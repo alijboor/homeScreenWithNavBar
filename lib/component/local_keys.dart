@@ -1,5 +1,4 @@
-class LocaleKeys{
-
+class LocaleKeys {
   static const String searchProductHint = "Search Product";
   static const String searchCategoryHint = "Search Category";
   static const String home = "Home";
@@ -28,8 +27,19 @@ class LocaleKeys{
   static const String products = "Products";
   static const String checkOut = "Check Out";
   static const String total = "Total";
-
-
-
-
+  static const String yourAddrese = "Your Addrese";
+  static const String changeAddrese = "Change Addrese";
+  static const String shippingMode = "Shipping Mode";
+  static const String changeMode = "Change Mode";
+  static const String paymnetMethod = "Paymnet Method";
+  static const String paymnetSuccess = "Paymnet Successful!";
+  static const String successMsg =
+      "Your Order will be Processed and sent to you as soon as possible";
+  static const String continueShopping = "Continue Shopping";
+  static const String paymnet = "Paymnet";
+  static const String viewAll = "View All";
+  static const String orderSummary = "Order Summary";
+  static const String coupon = "Coupon";
+  static const String addCouponCode = "Add Coupon Code";
+  static const String payNow = "Pay Now";
 }

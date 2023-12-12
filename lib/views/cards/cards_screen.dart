@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:home_screen/component/custom_Text.dart';
 import 'package:home_screen/component/custom_appbar.dart';
+import 'package:home_screen/component/gap.dart';
 import 'package:home_screen/component/local_keys.dart';
+import 'package:home_screen/views/cards/card_view.dart';
 
 class CardsScreen extends StatelessWidget {
   const CardsScreen({super.key});
@@ -13,9 +15,11 @@ class CardsScreen extends StatelessWidget {
         screenTitle: LocaleKeys.myCards,
         suffixIcon: _addCardIcon,
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Center(child: CustomText(text: LocaleKeys.yourPaymentCards)),
+          const Center(child: CustomText(text: LocaleKeys.yourPaymentCards)),
+          const Gap(height: 8.0),
+          CardView()
         ],
       ),
     );
