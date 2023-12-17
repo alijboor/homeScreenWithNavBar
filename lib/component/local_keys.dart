@@ -17,8 +17,10 @@ class LocaleKeys {
   static const String myOrders = "My Orders";
   static const String myCards = "My Cards";
   static const String languageSettings = "Language Settings";
+  static const String language = "Language";
   static const String settings = "Settings";
   static const String shippingAddrese = "Shipping Addrese";
+  static const String yourShippingAddresses = "your Shipping Addresses";
   static const String privacyPolicy = "Privacy Policy";
   static const String fqa = "FQA";
   static const String notifications = "Notifications";
@@ -42,4 +44,5 @@ class LocaleKeys {
   static const String coupon = "Coupon";
   static const String addCouponCode = "Add Coupon Code";
   static const String payNow = "Pay Now";
+  static const String selectLanguage = "Select a Language";
 }
